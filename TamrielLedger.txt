@@ -6,13 +6,14 @@
 
 Utils.lua
 SavedVariables.lua
-Core.lua
 
 Interactables.lua
 Chests.lua
 ThievesTrove.lua
 
 UI.lua
+
+Core.lua
 
 TamrielLedger.xml
 Bindings.xml
