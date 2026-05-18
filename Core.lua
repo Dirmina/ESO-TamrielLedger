@@ -7,6 +7,7 @@ local function OnAddonLoaded(eventCode, addonName)
 
     TamrielLedger.InitSavedVariables()
     TamrielLedger.InitThievesTrove()
+    TamrielLedger.InitChests()
     TamrielLedger.InitInteractables()
 
     d("[TL] Tamriel Ledger loaded.")

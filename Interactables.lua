@@ -31,6 +31,7 @@ end
 
 function TamrielLedger.OnInteractableChanged(interactable)
     TamrielLedger.CheckThievesTrove(interactable)
+    TamrielLedger.CheckChest(interactable)
 end
 
 function TamrielLedger.OnInteractableCleared()

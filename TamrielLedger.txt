@@ -8,8 +8,8 @@ Utils.lua
 SavedVariables.lua
 
 Interactables.lua
-Chests.lua
 ThievesTrove.lua
+Chests.lua
 
 UI.lua
 
