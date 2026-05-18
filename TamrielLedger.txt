@@ -1,0 +1,18 @@
+## Title: Tamriel Ledger
+## Author: Dirmina
+## Version: 0.0.1
+## APIVersion: 101049
+## SavedVariables: TamrielLedgerSaved
+
+Utils.lua
+SavedVariables.lua
+Core.lua
+
+Interactables.lua
+Chests.lua
+ThievesTrove.lua
+
+UI.lua
+
+TamrielLedger.xml
+Bindings.xml
