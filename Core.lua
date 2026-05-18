@@ -9,8 +9,9 @@ local function OnAddonLoaded(eventCode, addonName)
     TamrielLedger.InitThievesTrove()
     TamrielLedger.InitChests()
     TamrielLedger.InitInteractables()
+    TamrielLedger.InitUI()
 
-    d("[TL] Tamriel Ledger loaded.")
+    TamrielLedger.Debug("Tamriel Ledger loaded.")
 
     EVENT_MANAGER:UnregisterForEvent(
         TamrielLedger.name,
@@ -23,3 +24,17 @@ EVENT_MANAGER:RegisterForEvent(
     EVENT_ADD_ON_LOADED,
     OnAddonLoaded
 )
+
+SLASH_COMMANDS["/tldebug"] = function()
+    TamrielLedger.debugEnabled =
+        not TamrielLedger.debugEnabled
+
+    d(
+        "[TL] Debug "
+            .. (
+                TamrielLedger.debugEnabled
+                and "enabled"
+                or "disabled"
+            )
+    )
+end

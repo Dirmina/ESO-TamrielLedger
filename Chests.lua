@@ -5,7 +5,6 @@ TamrielLedger.lockQualityToDifficulty = {
     [LOCK_QUALITY_INTERMEDIATE] = "intermediate",
     [LOCK_QUALITY_ADVANCED] = "advanced",
     [LOCK_QUALITY_MASTER] = "master",
-    [LOCK_QUALITY_IMPOSSIBLE] = "impossible",
 }
 
 TamrielLedger.chestDifficultyLabels = {
@@ -13,7 +12,6 @@ TamrielLedger.chestDifficultyLabels = {
     intermediate = "Intermédiaire",
     advanced = "Avancé",
     master = "Maître",
-    impossible = "Impossible",
     unknown = "Inconnu",
 }
 
@@ -33,7 +31,7 @@ function TamrielLedger.CheckChest(interactable)
     then
         TamrielLedger.pendingChest = true
         TamrielLedger.StartLockQualityCapture()
-        d("[TL] Chest detected: " .. TamrielLedger.Safe(interactable.name))
+        TamrielLedger.Debug("Chest detected: " .. TamrielLedger.Safe(interactable.name))
     end
 end
 
@@ -54,7 +52,7 @@ function TamrielLedger.OnLockpickingBegin()
 
     local label = TamrielLedger.chestDifficultyLabels[difficulty] or difficulty
 
-    d("[TL] Lockpicking difficulty: " .. label)
+    TamrielLedger.Debug("Lockpicking difficulty: " .. label)
 end
 
 function TamrielLedger.StartLockQualityCapture()
@@ -75,7 +73,7 @@ function TamrielLedger.StartLockQualityCapture()
                     TamrielLedger.chestDifficultyLabels[difficulty]
                     or difficulty
 
-                d("[TL] Lockpicking difficulty captured: " .. label)
+                TamrielLedger.Debug("Lockpicking difficulty captured: " .. label)
 
                 EVENT_MANAGER:UnregisterForUpdate(
                     TamrielLedger.name .. "_LockQualityCapture"
@@ -120,7 +118,7 @@ function TamrielLedger.OnLockpickFailed()
 end
 
 function TamrielLedger.PrintChestStats()
-    d("[TL] Chest stats")
+    TamrielLedger.Debug("Chest stats")
 
     local difficulties = {
         "simple",
@@ -151,12 +149,6 @@ function TamrielLedger.PrintChestStats()
 end
 
 function TamrielLedger.InitChests()
-    -- EVENT_MANAGER:RegisterForEvent(
-    --     TamrielLedger.name .. "_LockpickingBegin",
-    --     EVENT_LOCKPICKING_BEGIN,
-    --     TamrielLedger.OnLockpickingBegin
-    -- )
-
     EVENT_MANAGER:RegisterForEvent(
         TamrielLedger.name .. "_LockpickSuccess",
         EVENT_LOCKPICK_SUCCESS,

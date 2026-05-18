@@ -1,6 +1,6 @@
 ## Title: Tamriel Ledger
 ## Author: Dirmina
-## Version: 0.0.1
+## Version: 0.1.0
 ## APIVersion: 101049
 ## SavedVariables: TamrielLedgerSaved
 

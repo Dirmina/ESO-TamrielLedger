@@ -30,7 +30,7 @@ function TamrielLedger.CheckThievesTrove(interactable)
     TamrielLedger.pendingThievesTrove = true
     TamrielLedger.thievesTroveAlreadyCounted = false
 
-    d("[TL] Thieves Trove detected: " .. interactable.name)
+    TamrielLedger.Debug("Thieves Trove detected: " .. interactable.name)
 end
 
 function TamrielLedger.ClearThievesTroveState()
@@ -60,7 +60,7 @@ function TamrielLedger.OnLootReceived()
 end
 
 function TamrielLedger.PrintThievesTroveStats()
-    d("[TL] Thieves Trove stats")
+    TamrielLedger.Debug("Thieves Trove stats")
     d("Character: " .. TamrielLedger.GetCharacterStat("thievesTrove"))
     d("Account: " .. TamrielLedger.GetAccountStat("thievesTrove"))
 end

@@ -1,0 +1,54 @@
+<GuiXml>
+    <Controls>
+        <TopLevelControl name="TamrielLedgerWindow" movable="true" mouseEnabled="true" hidden="true">
+            <Dimensions x="480" y="700" />
+            <Anchor point="CENTER" relativeTo="GuiRoot" relativePoint="CENTER" />
+
+            <Controls>
+                <Backdrop name="$(parent)Bg" inherits="ZO_DefaultBackdrop">
+                    <AnchorFill />
+                </Backdrop>
+
+                <Label name="$(parent)Title" text="Tamriel Ledger" font="ZoFontWinH1">
+                    <Anchor point="TOP" offsetY="16" />
+                </Label>
+
+                <Button name="$(parent)CharacterTab" text="Personnage" inherits="ZO_DefaultButton">
+                    <Dimensions x="140" y="32" />
+                    <Anchor point="TOPLEFT" offsetX="24" offsetY="72" />
+                    <OnClicked>
+                        TamrielLedger.SetStatsScope("character")
+                    </OnClicked>
+                </Button>
+
+                <Button name="$(parent)AccountTab" text="Compte" inherits="ZO_DefaultButton">
+                    <Dimensions x="140" y="32" />
+                    <Anchor point="LEFT" relativeTo="$(parent)CharacterTab" relativePoint="RIGHT" offsetX="8" />
+                    <OnClicked>
+                        TamrielLedger.SetStatsScope("account")
+                    </OnClicked>
+                </Button>
+
+                <Button
+                    name="$(parent)Close"
+                    inherits="ZO_CloseButton"
+                >
+                    <Anchor
+                        point="TOPRIGHT"
+                        offsetX="-12"
+                        offsetY="12"
+                    />
+
+                    <OnClicked>
+                        TamrielLedgerWindow:SetHidden(true)
+                    </OnClicked>
+                </Button>   
+
+                <Control name="$(parent)Content">
+                    <Anchor point="TOPLEFT" offsetX="48" offsetY="132" />
+                    <Anchor point="BOTTOMRIGHT" offsetX="-48" offsetY="-24" />
+                </Control>
+            </Controls>
+        </TopLevelControl>
+    </Controls>
+</GuiXml>
